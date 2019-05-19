@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/luisgabriel84/cursonodejs-e1/issues"
   },
-  "homepage": "https://github.com/luisgabriel84/cursonodejs-e1#readme"
+  "homepage": "https://github.com/luisgabriel84/cursonodejs-e1#readme",
+  "dependencies": {
+    "yargs": "^13.2.4"
+  }
 }
