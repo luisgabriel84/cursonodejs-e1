@@ -1,0 +1,19 @@
+{
+  "name": "primera-entrega-nodejs",
+  "version": "1.0.0",
+  "description": "Primera entrega del curso de NodeJs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luisgabriel84/cursonodejs-e1.git"
+  },
+  "author": "Luis Gabriel Rodriguez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/luisgabriel84/cursonodejs-e1/issues"
+  },
+  "homepage": "https://github.com/luisgabriel84/cursonodejs-e1#readme"
+}
