@@ -30,11 +30,14 @@ var cursosController = (function() {
         },
         inscribirEstudiante(args){
             resultCourse = findCourse(args.i);
-            let{ id, name,duracion, valor}  = resultCourse;
-            if(id){
-                console.log("\nESTÁS INTERESADO EN EL CURSO: "+ id +" "+  name + ": DURACIÓN"+ duracion + " - VALOR: "+valor );
-                writeFile(resultCourse, args.n, args.c);
-                return true;
+            if(resultCourse !==undefined ){
+                let{ id, name,duracion, valor}  = resultCourse;
+                if(id){
+                    console.log("\nESTÁS INTERESADO EN EL CURSO: "+ id +" "+  name + ": DURACIÓN"+ duracion + " - VALOR: "+valor );
+                    writeFile(resultCourse, args.n, args.c);
+                    return true;
+                }
+
             }else{
                 console.log("\nNo se encontro ningún curso con ese id: "+  args.i + "\nEste es el listado de cursos ");
                 return false;
