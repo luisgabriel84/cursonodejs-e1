@@ -2,6 +2,8 @@
 var cursosController = (function() {
 
     const CursosOfertados = require('./data');
+
+    
     /* Buscar un curso +*/
     let findCourse = (id) =>{
         const course = CursosOfertados.find(curso => curso.id === id);
@@ -11,9 +13,10 @@ var cursosController = (function() {
     /* Generar archivo de inscripcion*/
     let  writeFile = (course, name, cedula) =>{
         const fs = require('fs');
+        let{ id, coursename,duracion, valor}  = course;
 
         let texto_inscripcion = 'EL ESTUDIANTE: '+ name +' \nCÉDULA: ' + cedula + '\n'+
-        "FUE INSCRITO EN EL CURSO: "+ course.name + "\nDURACIÓN: "+course.duracion + "\nVALOR: $" + course.valor;
+        "FUE INSCRITO EN EL CURSO: "+ coursename + "\nDURACIÓN: "+duracion + "\nVALOR: $" + valor;
         
         fs.writeFile('inscripcion-' + cedula + '.txt',texto_inscripcion,(err)=>{
             if(err) throw(err);
@@ -26,9 +29,10 @@ var cursosController = (function() {
             return CursosOfertados;
         },
         inscribirEstudiante(args){
-            let resultCourse = findCourse(args.i);
-            if(resultCourse){
-                console.log("\nESTÁS INTERESADO EN EL CURSO: "+ resultCourse.id +" "+  resultCourse.name + ": DURACIÓN"+ resultCourse.duracion + " - VALOR: "+resultCourse.duracion );
+            resultCourse = findCourse(args.i);
+            let{ id, name,duracion, valor}  = resultCourse;
+            if(id){
+                console.log("\nESTÁS INTERESADO EN EL CURSO: "+ id +" "+  name + ": DURACIÓN"+ duracion + " - VALOR: "+valor );
                 writeFile(resultCourse, args.n, args.c);
                 return true;
             }else{
